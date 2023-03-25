@@ -14,9 +14,20 @@ projects.get('/', (req, res)=>{
     )
 })
 
+// //INDEX DETAILS
+// projects.get('/:arrayIndex', (req, res)=>{
+//     res.send(Project[req.params.arrayIndex])
+// })
+
 //SHOW
 projects.get('/:arrayIndex', (req, res)=>{
-    res.send(Project[req.params.arrayIndex])
+    if(Project[req.params.arrayIndex]){
+    res.render('Show', {
+        project: Project[req.params.arrayIndex]
+    })
+   }else{
+    res.send('Not found, go back!')
+   }
 })
 
 module.exports = projects
