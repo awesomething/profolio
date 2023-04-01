@@ -18,6 +18,11 @@ function Index({ projects }){
                     })
                 }
             </ul>
+            <div>
+                <a href='/projects/new'>
+                    <button>Add New Project</button>
+                </a>
+            </div>
         </Default>
     )
 }
