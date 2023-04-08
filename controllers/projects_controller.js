@@ -24,20 +24,23 @@ projects.get('/new',(req,res)=>{
     res.render('new')
 })
 
-
-
 //SHOW
 projects.get('/:arrayIndex', (req, res)=>{
     if(Project[req.params.arrayIndex]){
         res.render('Show', {
-            project: Project[req.params.arrayIndex]
+            project: Project[req.params.arrayIndex],
+            index: req.params.arrayIndex
         })
     }else{
         res.send('Not found, go back!')
     }
 })
 
-
+//DELETE
+projects.delete('/:indexArray', (req,res)=>{
+    Project.splice(req.params.indexArray, 1)
+    res.status(303).redirect('/projects')
+})
 
 //CREATE
 projects.post('/', (req,res)=>{
